@@ -1,10 +1,10 @@
 # system-design
 
-Architecture analysis and system design work, documented with the C4 model.
+System design and architecture analysis, documented with the C4 model.
 
-Reverse-engineer a running system from observable behavior, model it at the
-right level of abstraction, then write up what a production version would have
-to change.
+Take a running system, work out how it is put together from observable
+behavior, model it at the right level of abstraction, then state what a
+production version would have to change.
 
 ## Contents
 
@@ -12,18 +12,30 @@ to change.
 |---|---|---|
 | [saucedemo-architecture](saucedemo-architecture/) | [saucedemo.com](https://www.saucedemo.com/) | Context, Container, Component |
 
-## How each project is structured
+## Method
 
-Every project answers three questions in the same order.
+Each system gets the same three-step treatment.
 
-1. **What is there.** Evidence first, from DevTools and response
-   headers, with an evidence log recording where each claim came from.
-2. **How is it shaped.** C4 diagrams at context, container, and component
-   level, with every element labeled by type, technology, and role.
-3. **What would production require.** The gap between observed behavior and a
-   system handling real users and real data, with reasoning for each gap.
+1. **Establish what exists.** Inspect the running system and record what you
+   find. Network traffic, bundle contents, browser storage, response headers.
+   Every claim carries the source it came from, and inference stays labelled as
+   inference rather than observation.
+2. **Model it in C4.** Diagram at the level of abstraction the question needs:
+   the people and external systems around the system, the deployable units
+   inside it, then the components within one unit.
+3. **State the production gap.** Compare observed behavior against what the
+   system would need in order to carry real users and real data, with the
+   reasoning for each gap rather than a list of missing features.
 
-Diagrams ship as PNG for viewing and as `.drawio` source for editing, so a
+## C4 levels
+
+| Level | Question it answers |
+|---|---|
+| Context | Who and what interacts with this system |
+| Container | Which deployable or runnable units make it up |
+| Component | What one of those units is built from internally |
+
+Diagrams ship as PNG for viewing and as `.drawio` source for editing, so a later
 correction never means redrawing from scratch.
 
 ## Tools
