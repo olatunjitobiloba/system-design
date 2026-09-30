@@ -10,15 +10,15 @@ and document its architecture using the C4 model.
 3. Modeled findings using C4: Context → Container → Component
 
 ## Key Finding
-SauceDemo is a static React PWA with zero backend — auth, cart, and 
+SauceDemo is a static React PWA with zero backend. Auth, cart, and 
 "persistence" are all client-side. Its only real external dependency 
 is Backtrace.io for error monitoring. Delivery is handled by 
 GitHub Pages behind Fastly/Varnish.
 
 ## Diagrams
-- [Context + Container](diagrams/01-context-and-container.png) — actors,
+- [Context + Container](diagrams/01-context-and-container.png): actors,
   external systems, and the delivery path (Fastly → Varnish → GitHub Pages)
-- [Component](diagrams/02-component-checkout.png) — checkout flow internals
+- [Component](diagrams/02-component-checkout.png): checkout flow internals
 
 The first view merges the Context and Container levels. SauceDemo has a small
 enough footprint that one page stays readable, and the elements do not overlap:
